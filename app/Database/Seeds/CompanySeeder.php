@@ -11,14 +11,17 @@ class CompanySeeder extends Seeder
         $data = [
             [
                 'company_name' => 'PT. ABC',
+                'company_phone' => '021-12345678',
                 'company_address' => 'Jl. Raya No. 123',
             ],
             [
                 'company_name' => 'PT. DEF',
+                'company_phone' => '021-23456789',
                 'company_address' => 'Jl. Raya No. 456',
             ],
             [
                 'company_name' => 'PT. GHI',
+                'company_phone' => '021-34567890',
                 'company_address' => 'Jl. Raya No. 789',
             ],
         ];

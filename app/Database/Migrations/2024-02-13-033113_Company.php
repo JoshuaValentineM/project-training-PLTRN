@@ -17,10 +17,15 @@ class Company extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 50,
             ],
+            'company_phone' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+            ],
             'company_address' => [
                 'type' => 'TEXT',
-            ],
+            ]
         ]);
+
         $this->forge->addKey('company_id', true);
         $this->forge->createTable('company');
     }

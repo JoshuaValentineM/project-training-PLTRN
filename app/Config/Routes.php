@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Employee;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -7,3 +8,11 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/company/index', 'Company::index');
+$routes->get('/company/create', 'Company::create');
+$routes->post('/company/save', 'Company::save');
+$routes->get('/company/(:segment)/employees', 'Employee::listEmployees/$1');
+$routes->get('/company/(:segment)/create', 'Employee::create/$1');
+$routes->post('/employee/(:segment)/save', 'Employee::save/$1');
+$routes->post('/employee/(:segment)/delete/(:segment)', 'Employee::delete/$1/$2');
+$routes->get('/employee/(:segment)/edit', 'Employee::edit/$1');
+$routes->post('/employee/(:segment)/update/(:segment)', 'Employee::update/$1/$2');

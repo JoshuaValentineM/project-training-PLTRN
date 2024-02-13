@@ -16,6 +16,10 @@ class Employee extends Migration
             'company_id' => [
                 'type' => 'INT',
             ],
+            'employee_name'   => [
+                'type' => 'VARCHAR',
+                'constraint' => 100,
+            ],
             'employee_gender'   => [
                 'type' => 'INT',
             ],
