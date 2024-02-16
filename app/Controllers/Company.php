@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CompanyModel;
+use Config\Session;
 
 class Company extends BaseController
 {
@@ -35,11 +36,25 @@ class Company extends BaseController
 
     public function create()
     {
-        return view('company/create');
+        session();
+        $validation = \Config\Services::validation();
+        return view('company/create', [
+            'validation' => $validation
+        ]);
     }
 
     public function save()
     {
+
+        if (!$this->validate([
+            'companyName' => 'required',
+            'phoneNumber' => 'required',
+            'companyAddress' => 'required'
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/company/create')->withInput()->with('validation', $validation);
+        }
+
         $this->companyModel->save([
             'company_name' => $this->request->getVar('companyName'),
             'company_phone' => $this->request->getVar('phoneNumber'),

@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-8">
                 <h1 class="my-3">Edit Employee</h1>
-                <form action="/employee/<?= $employee['company_id']; ?>/update/<?= $employee['employee_id']; ?>" method="post">
+                <form action="/employee/<?= $employee['company_id']; ?>/update/<?= $employee['employee_id']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="row mb-3">
                         <label for="employeeName" class="col-sm-2 col-form-label">Employee Name</label>
@@ -50,6 +50,7 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="oldEmployeePicture" value="<?= $employee['employee_picture']; ?>">
                     <div class="row mb-3">
                         <label for="employeePicture" class="col-sm-2 col-form-label">Picture</label>
                         <div class="col-sm-10">
