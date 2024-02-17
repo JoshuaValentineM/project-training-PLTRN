@@ -43,6 +43,28 @@ class Company extends BaseController
         ]);
     }
 
+    public function edit()
+    {
+        $company_id = $this->request->uri->getSegment(2);
+        $company = $this->companyModel->find($company_id);
+        return view('company/edit', [
+            'company' => $company
+        ]);
+    }
+
+    public function update()
+    {
+        $company_id = $this->request->uri->getSegment(2);
+        $this->companyModel->save([
+            'company_id' => $company_id,
+            'company_name' => $this->request->getVar('companyName'),
+            'company_phone' => $this->request->getVar('phoneNumber'),
+            'company_address' => $this->request->getVar('companyAddress'),
+        ]);
+
+        return redirect()->to('/company/index');
+    }
+
     public function save()
     {
 

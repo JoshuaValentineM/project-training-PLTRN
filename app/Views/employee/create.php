@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layout/template'); ?>
+<?= $this->section('content'); ?>
+<title>Add new employee</title>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add new employee</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<style>
-    .form-control {
-        width: calc(min(20em, 100%));
-    }
-</style>
 
 <body>
     <div class="container">
@@ -84,63 +75,61 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-    <script>
-        document.getElementById('createEmployeeForm').addEventListener('submit', function(event) {
-            let employeeNameInput = document.getElementById('employeeName');
-            let employeeGenderInput = document.getElementById('employeeGender');
-            let employeeBirthdayInput = document.getElementById('employeeBirthday');
-            let employeePictureInput = document.getElementById('employeePicture');
-            let employeePhoneInput = document.getElementById('employeePhone');
-
-            document.getElementById('error-name').innerText = '';
-            document.getElementById('error-gender').innerText = '';
-            document.getElementById('error-birthday').innerText = '';
-            document.getElementById('error-picture').innerText = '';
-            document.getElementById('error-phone').innerText = '';
-
-            employeeNameInput.classList.remove('is-invalid');
-            employeeGenderInput.classList.remove('is-invalid');
-            employeeBirthdayInput.classList.remove('is-invalid');
-            employeePictureInput.classList.remove('is-invalid');
-            employeePhoneInput.classList.remove('is-invalid');
-
-            if (!employeeNameInput.value.trim()) {
-                document.getElementById('error-name').innerText = 'Employee name is required!';
-                employeeNameInput.classList.add('is-invalid');
-                document.getElementById('error-name').style.color = 'red';
-                event.preventDefault();
-            }
-
-            if (!employeeGenderInput.value.trim()) {
-                document.getElementById('error-gender').innerText = 'Gender is required!';
-                employeeGenderInput.classList.add('is-invalid');
-                document.getElementById('error-gender').style.color = 'red';
-                event.preventDefault();
-            }
-
-            if (!employeeBirthdayInput.value.trim()) {
-                document.getElementById('error-birthday').innerText = 'Birthday is required!';
-                employeeBirthdayInput.classList.add('is-invalid');
-                document.getElementById('error-birthday').style.color = 'red';
-                event.preventDefault();
-            }
-
-            if (!employeePhoneInput.value.trim()) {
-                document.getElementById('error-phone').innerText = 'Phone is required!';
-                employeePhoneInput.classList.add('is-invalid');
-                document.getElementById('error-phone').style.color = 'red';
-                event.preventDefault();
-            } else if (!/^\d+$/.test(employeePhoneInput.value.trim())) {
-                document.getElementById('error-phone').innerText = 'Phone number must contain only number!';
-                employeePhoneInput.classList.add('is-invalid');
-                document.getElementById('error-phone').style.color = 'red';
-                event.preventDefault();
-            }
-        });
-    </script>
-
 </body>
 
-</html>
+<script>
+    document.getElementById('createEmployeeForm').addEventListener('submit', function(event) {
+        let employeeNameInput = document.getElementById('employeeName');
+        let employeeGenderInput = document.getElementById('employeeGender');
+        let employeeBirthdayInput = document.getElementById('employeeBirthday');
+        let employeePictureInput = document.getElementById('employeePicture');
+        let employeePhoneInput = document.getElementById('employeePhone');
+
+        document.getElementById('error-name').innerText = '';
+        document.getElementById('error-gender').innerText = '';
+        document.getElementById('error-birthday').innerText = '';
+        document.getElementById('error-picture').innerText = '';
+        document.getElementById('error-phone').innerText = '';
+
+        employeeNameInput.classList.remove('is-invalid');
+        employeeGenderInput.classList.remove('is-invalid');
+        employeeBirthdayInput.classList.remove('is-invalid');
+        employeePictureInput.classList.remove('is-invalid');
+        employeePhoneInput.classList.remove('is-invalid');
+
+        if (!employeeNameInput.value.trim()) {
+            document.getElementById('error-name').innerText = 'Employee name is required!';
+            employeeNameInput.classList.add('is-invalid');
+            document.getElementById('error-name').style.color = 'red';
+            event.preventDefault();
+        }
+
+        if (!employeeGenderInput.value.trim()) {
+            document.getElementById('error-gender').innerText = 'Gender is required!';
+            employeeGenderInput.classList.add('is-invalid');
+            document.getElementById('error-gender').style.color = 'red';
+            event.preventDefault();
+        }
+
+        if (!employeeBirthdayInput.value.trim()) {
+            document.getElementById('error-birthday').innerText = 'Birthday is required!';
+            employeeBirthdayInput.classList.add('is-invalid');
+            document.getElementById('error-birthday').style.color = 'red';
+            event.preventDefault();
+        }
+
+        if (!employeePhoneInput.value.trim()) {
+            document.getElementById('error-phone').innerText = 'Phone is required!';
+            employeePhoneInput.classList.add('is-invalid');
+            document.getElementById('error-phone').style.color = 'red';
+            event.preventDefault();
+        } else if (!/^\d+$/.test(employeePhoneInput.value.trim())) {
+            document.getElementById('error-phone').innerText = 'Phone number must contain only number!';
+            employeePhoneInput.classList.add('is-invalid');
+            document.getElementById('error-phone').style.color = 'red';
+            event.preventDefault();
+        }
+    });
+</script>
+
+<?= $this->endSection(); ?>

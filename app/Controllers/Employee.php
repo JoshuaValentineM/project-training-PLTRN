@@ -21,9 +21,12 @@ class Employee extends BaseController
         $company_id = $this->request->uri->getSegment(2);
         $employee = $this->employeeModel->where('company_id', $company_id)->findAll();
 
-        // if (empty($employee)) {
-        //     throw new \CodeIgniter\Exceptions\PageNotFoundException('Employee not found');
-        // }
+        if (empty($employee)) {
+            // return same view but give company id data 
+            return view('employee/listEmployees', [
+                'company_id' => $company_id
+            ]);
+        }
 
         return view('employee/listEmployees', [
             'employee' => $employee
