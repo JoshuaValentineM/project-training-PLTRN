@@ -4,15 +4,15 @@
 
 </head>
 
-<body>
+<body style="background-color: #FCF6F5;">
     <div class="container">
         <div class="row">
             <div class="col-8">
                 <h1 class="my-3">Add New Employee</h1>
                 <form id="createEmployeeForm" action="/employee/<?= $company_id; ?>/save" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
-                    <div class="row mb-3">
-                        <label for="employeeName" class="col-sm-2 col-form-label">Employee Name</label>
+                    <div class="form-group">
+                        <label for="employeeName" class="col-sm-5 col-form-label">Employee Name</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="employeeName" name="employeeName" autofocus>
                             <div>
@@ -20,57 +20,58 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="form-group">
                         <label for="employeeGender" class="col-sm-2 col-form-label">Gender</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="employeeGender" id="employeeGender" value=1>
-                            <label class="form-check-label" for="employeeGender">
-                                Male
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="employeeGender" id="employeeGender" value=2>
-                            <label class="form-check-label" for="employeeGender">
-                                Female
-                            </label>
-                        </div>
-                        <div>
-                            <p id="error-gender"></p>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label for="employeeBirthday" class="col-sm-2 col-form-label">Birthday</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" id="employeeBirthday" name="employeeBirthday">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="employeeGender" id="employeeGender" value=1>
+                                <label class="form-check-label" for="employeeGender">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="employeeGender" id="employeeGender" value=2>
+                                <label class="form-check-label" for="employeeGender">
+                                    Female
+                                </label>
+                            </div>
                             <div>
-                                <p id="error-birthday"></p>
+                                <p id="error-gender"></p>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row mb-3">
-                        <label for="employeePicture" class="col-sm-2 col-form-label">Picture</label>
-                        <div class="col-sm-10">
-                            <input type="file" class="form-control" id="employeePicture" name="employeePicture">
-                            <div>
-                                <p id="error-picture"></p>
+                        <div class="form-group">
+                            <label for="employeeBirthday" class="col-sm-2 col-form-label">Birthday</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="employeeBirthday" name="employeeBirthday">
+                                <div>
+                                    <p id="error-birthday"></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row mb-3">
-                        <label for="employeePhone" class="col-sm-2 col-form-label">Phone</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="employeePhone" name="employeePhone">
-                            <div>
-                                <p id="error-phone"></p>
+                        <div class="form-group">
+                            <label for="employeePicture" class="col-sm-2 col-form-label">Picture</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="employeePicture" name="employeePicture">
+                                <div>
+                                    <p id="error-picture"></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a href="/company/index" class="btn btn-danger">Cancel</a>
+                        <div class="form-group">
+                            <label for="employeePhone" class="col-sm-2 col-form-label">Phone</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="employeePhone" name="employeePhone">
+                                <div>
+                                    <p id="error-phone"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn" style="background-color: #990011; color:#FFFFFF; width: 150px">Add Employee</button>
+                        <a href="/company/index" class="btn" style="background-color: #FFFFFF; border-color:#990011; color:#990011; width: 150px; margin-left:10px">Cancel</a>
                 </form>
             </div>
         </div>

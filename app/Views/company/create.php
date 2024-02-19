@@ -6,10 +6,16 @@
     .form-control {
         width: calc(min(20em, 100%));
     }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
 </style>
 </head>
 
-<body>
+<body style="background-color: #FCF6F5;">
+
 
     <div class="container">
         <div class="row">
@@ -17,8 +23,9 @@
                 <h1 class="my-3">Add New Company</h1>
 
                 <form id="createCompanyForm" action="/company/save" method="post">
-                    <?= csrf_field(); ?> <div class="row mb-3">
-                        <label for="companyName" class="col-sm-2 col-form-label">Company Name</label>
+                    <?= csrf_field(); ?>
+                    <div class="form-group">
+                        <label for="companyName" class="col-sm-5 col-form-label">Company Name</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Enter new company name" autofocus>
                         </div>
@@ -26,8 +33,8 @@
                             <p id="error-company"></p>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+                    <div class="form-group">
+                        <label for="phoneNumber" class="col-sm-5 col-form-label">Phone Number</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter new company phone number">
                         </div>
@@ -35,7 +42,7 @@
                             <p id="error-phone"></p>
                         </div>
                     </div>
-                    <div class=" row mb-3">
+                    <div class=" form-group">
                         <label for="companyAddress" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="companyAddress" name="companyAddress" placeholder="Enter new company address">
@@ -44,8 +51,8 @@
                             <p id="error-address"></p>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Company</button>
-                    <a href="/company/index" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn" style="background-color: #990011; color:#FFFFFF; width: 150px">Add Company</button>
+                    <a href="/company/index" class="btn" style="background-color: #FFFFFF; border-color:#990011; color:#990011; width: 150px; margin-left:10px">Cancel</a>
                 </form>
             </div>
         </div>

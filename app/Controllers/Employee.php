@@ -29,7 +29,8 @@ class Employee extends BaseController
         }
 
         return view('employee/listEmployees', [
-            'employee' => $employee
+            'employee' => $employee,
+            'company_id' => $company_id
         ]);
     }
 

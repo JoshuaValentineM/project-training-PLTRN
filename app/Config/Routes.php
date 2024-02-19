@@ -11,6 +11,7 @@ $routes->get('/company/index', 'Company::index');
 $routes->get('/company/create', 'Company::create');
 $routes->post('/company/save', 'Company::save');
 $routes->get('/company/(:segment)/edit', 'Company::edit/$1');
+$routes->post('/company/(:segment)/delete', 'Company::delete/$1');
 $routes->get('/company/(:segment)/employees', 'Employee::listEmployees/$1');
 $routes->get('/company/(:segment)/create', 'Employee::create/$1');
 $routes->post('/employee/(:segment)/save', 'Employee::save/$1');

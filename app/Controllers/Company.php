@@ -85,4 +85,21 @@ class Company extends BaseController
 
         return redirect()->to('/company/index');
     }
+
+    public function delete($id)
+    {
+        // $company_id = $this->request->uri->getSegment(2);
+
+        $employeeModel = new \App\Models\EmployeeModel();
+        $employeesToDelete = $employeeModel->where('company_id', $id)->findAll(); // Filter employees
+
+        if (!empty($employeesToDelete)) {
+            foreach ($employeesToDelete as $employee) {
+                $employeeModel->delete($employee['employee_id']);
+            }
+        }
+
+        $this->companyModel->delete($id);
+        return redirect()->to('/company/index');
+    }
 }
