@@ -9,28 +9,32 @@ use CodeIgniter\CLI\Console;
 class Employee extends BaseController
 {
 
-    protected $employeeModel;
+    protected $employeeModel, $companyModel;
 
     public function __construct()
     {
         $this->employeeModel = new EmployeeModel();
+        $this->companyModel = new CompanyModel();
     }
 
     public function listEmployees()
     {
         $company_id = $this->request->uri->getSegment(2);
+        $company = $this->companyModel->find($company_id);
         $employee = $this->employeeModel->where('company_id', $company_id)->findAll();
 
         if (empty($employee)) {
             // return same view but give company id data 
             return view('employee/listEmployees', [
-                'company_id' => $company_id
+                'company_id' => $company_id,
+                'company' => $company
             ]);
         }
 
         return view('employee/listEmployees', [
             'employee' => $employee,
-            'company_id' => $company_id
+            'company_id' => $company_id,
+            'company' => $company
         ]);
     }
 

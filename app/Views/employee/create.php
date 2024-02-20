@@ -1,7 +1,31 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
 <title>Add new employee</title>
+<style>
+    #picture-div {
+        text-align: center;
+        align-items: center;
+        vertical-align: middle;
+        padding-top: 25px;
+        margin-left: 15px;
+        width: 150px;
+        height: 150px;
+        border-radius: 10%;
+        background-color: #C4C4C4;
+    }
 
+    input[type="file"] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    #imageName {
+        color: green;
+    }
+</style>
 </head>
 
 <body style="background-color: #FCF6F5;">
@@ -52,11 +76,18 @@
 
                         <div class="form-group">
                             <label for="employeePicture" class="col-sm-2 col-form-label">Picture</label>
-                            <div class="col-sm-10">
-                                <input type="file" class="form-control" id="employeePicture" name="employeePicture">
-                                <div>
-                                    <p id="error-picture"></p>
+                            <div class="full-picture" style="display:flex">
+                                <div id="picture-div">
+                                    <label for="employeePicture">
+                                        <i class="bi bi-plus-circle-fill" style="font-size: 3em; color:#A1A1A1;"></i>
+                                        <input type="file" class="form-control" id="employeePicture" name="employeePicture">
+                                    </label>
                                 </div>
+                                <img id="picture-selected" src="" alt="" style="margin-left:100px;max-width:200px;">
+                            </div>
+                            <p id="pictureName" style="margin-left:15px;"></p>
+                            <div>
+                                <p id="error-picture"></p>
                             </div>
                         </div>
 
@@ -77,6 +108,8 @@
         </div>
     </div>
 </body>
+
+<script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
 
 <script>
     document.getElementById('createEmployeeForm').addEventListener('submit', function(event) {
@@ -129,6 +162,28 @@
             employeePhoneInput.classList.add('is-invalid');
             document.getElementById('error-phone').style.color = 'red';
             event.preventDefault();
+        }
+    });
+
+    // show selected picture in #picture-selected after file selected
+    document.getElementById('employeePicture').addEventListener('change', function() {
+        let file = this.files[0];
+        let pictureSelected = document.getElementById('picture-selected');
+        if (file) {
+            pictureSelected.src = URL.createObjectURL(file);
+        } else {
+            pictureSelected.src = '';
+        }
+    });
+
+    // show selected picture name in #pictureName after file selected
+    document.getElementById('employeePicture').addEventListener('change', function() {
+        let file = this.files[0];
+        let pictureName = document.getElementById('pictureName');
+        if (file) {
+            pictureName.innerText = file.name;
+        } else {
+            pictureName.innerText = '';
         }
     });
 </script>

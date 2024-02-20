@@ -10,19 +10,19 @@ class CompanySeeder extends Seeder
     {
         $data = [
             [
-                'company_name' => 'PT. ABC',
+                'company_name' => 'PT. Polytron',
                 'company_phone' => '021-12345678',
-                'company_address' => 'Jl. Raya No. 123',
+                'company_address' => 'Jl. Slipi No. 123',
             ],
             [
-                'company_name' => 'PT. DEF',
+                'company_name' => 'PT. Tokopedia',
                 'company_phone' => '021-23456789',
-                'company_address' => 'Jl. Raya No. 456',
+                'company_address' => 'Jl. Kuningan No. 456',
             ],
             [
-                'company_name' => 'PT. GHI',
+                'company_name' => 'PT. Djarum',
                 'company_phone' => '021-34567890',
-                'company_address' => 'Jl. Raya No. 789',
+                'company_address' => 'Jl. Sudirman No. 789',
             ],
         ];
 

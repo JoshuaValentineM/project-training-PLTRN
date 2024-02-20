@@ -22,14 +22,29 @@
         margin-left: 5%;
         margin-right: 30px;
     }
+
+    tbody tr td {
+        font-size: medium;
+        font-weight: bold;
+    }
+
+    thead tr th {
+        font-size: medium;
+        color: #C4C4C4;
+    }
+
+    table {
+        vertical-align: middle;
+    }
 </style>
-<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 </head>
 
 <body style="background-color: #FCF6F5;">
     <!-- <div class="container">
         <div class="row">
             <div class="col"> -->
+    <br>
     <div class="company-list-container">
         <h1>Company List</h1>
         <a id="new-button" href="/company/create" class="btn" style="background-color: #990011; color: #FFFFFF">
@@ -52,13 +67,13 @@
                 foreach ($company as $c) : ?>
                     <tr>
                         <td>
-                            <img src="/img/spongebob.png" alt="" width="100px">
+                            <img class="rounded" src="/img/office.png" alt="" style="max-width:100px;width:100%; margin-right:10px">
                             <?= $c['company_name']; ?>
                         </td>
-                        <td><?= $c['company_phone']; ?></td>
-                        <td><?= $c['company_address']; ?></td>
-                        <td>
-                            <a href="/company/<?= $c['company_id']; ?>/employees" class="btn" style="background-color: #F18B97; color:#FFFFFF">
+                        <td style="vertical-align: middle;"><?= $c['company_phone']; ?></td>
+                        <td style="vertical-align: middle;"><?= $c['company_address']; ?></td>
+                        <td style="vertical-align: middle;">
+                            <a href=" /company/<?= $c['company_id']; ?>/employees" class="btn" style="background-color: #F18B97; color:#FFFFFF">
                                 <i class="bi bi-person-fill"></i>
                                 Employee List</a>
                             <form action="/company/<?= $c['company_id']; ?>/delete" method="post" style="margin-left:15px">
