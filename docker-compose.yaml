@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  panel:
+    build: "./"
+    image: "${IMAGE_NAME}:${IMAGE_VERSION}"
+    user: "[UID]:[GID]"
+    env_file:
+      .env
+    ports:
+      - "[PORT]:8080"
+    restart: on-failure
+    volumes:
+      - [PATH_EXCEL]/public/data/upload:/var/www/public/data/upload
+    environment:
+      TZ: "Asia/Jakarta"
+      #appconfig (APP_PORT Tidak Perlu Diganti)
+      APP PORT: 3000
+      #base_url perlu untuk mengetahui di host dev/staging/production
+      APP_BASE_URL: "[BASE_URL]"
+      #database config
+      DB_HOST: "172.17.0.1" # 172.17.0.1
+      DB_PORT: "1047" # 1047
+      DB_USER: "fira" # fira
+      DB_PASS: "fira132" # fira132

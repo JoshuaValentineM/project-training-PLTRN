@@ -41,7 +41,7 @@
                     </div>
 
                     <button type="submit" class="btn" style="background-color: #990011; color:#FFFFFF; width: 150px">Save Changes</button>
-                    <a href="/company/index" class="btn" style="background-color: #FFFFFF; border-color:#990011; color:#990011; width: 150px; margin-left:10px">Discard Changes</a>
+                    <a href="/company/index" class="btn" style="background-color: #FFFFFF; border-color:#990011; color:#990011; width: 170px; margin-left:10px">Discard Changes</a>
                 </form>
             </div>
         </div>

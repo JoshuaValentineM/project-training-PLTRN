@@ -184,6 +184,7 @@
                         $('.employee-detail-container').css('width', '50%');
                         $('.employee-detail-container').css('margin-top', '100px');
                         $('.employee-detail-container').css('margin-left', '100px');
+
                         // positioning the close button to the right
                         $('.close-button').css('position', 'absolute');
                         $('.close-button').css('right', '300px');

@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  panel:
+    build: "./"
+    image: "${IMAGE_NAME}:${IMAGE_VERSION}"
+    logging: 
+      driver: "json file"
+      options:
+        max-file: "3"
+        max-size: "100m"
+      env-file:
+      - .env
+      ports:
+      - "[PORT]: 3000"
+      volumes:
+      - [PATH_LOG]/wa_services/logs:/usr/src/app/logs
+      restart: on-failure
+      environment:
+        BASE_URL: "https://lasagna.fira.id:2038/" #https://lasagna.fira.id:2038/
+        APP_PORT: 3000
+
+        #database config
+        DB_HOST: "172.17.0.1" #172.17.0.1
+        DB_PORT: "1047" #1047
+        DB_USER: "" #
+        DB_PASS: "" #
+        DATABASE: "cb_res_panel" #cb_res_panel
+
+        #redis config
+        REDIS_HOST: "172.17.0.1" #172.17.0.1
+        REDIS_PORT: "6379" #6379
+        REDIS_PASS: "[REDIS_PASS]"
+
+        

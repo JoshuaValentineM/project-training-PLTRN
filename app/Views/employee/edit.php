@@ -8,7 +8,7 @@
     } */
 
     .form-group {
-        margin-bottom: 1.5rem;
+        /* margin-bottom: 1.5rem; */
     }
 
     .form-label {
@@ -19,6 +19,26 @@
 
     .form-control {
         width: 100%;
+    }
+
+    #picture-div {
+        text-align: center;
+        align-items: center;
+        vertical-align: middle;
+        padding-top: 25px;
+        margin-left: 15px;
+        width: 150px;
+        height: 150px;
+        border-radius: 10%;
+        background-color: #C4C4C4;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
     }
 </style>
 
@@ -65,11 +85,20 @@
                     </div>
 
                     <input type="hidden" name="oldEmployeePicture" value="<?= $employee['employee_picture']; ?>">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="employeePicture" class="col-sm-2 col-form-label">Picture</label>
                         <div class="col-sm-10">
                             <input type="file" class="form-control" id="employeePicture" name="employeePicture" value="<?= $employee['employee_picture']; ?>">
                         </div>
+                    </div> -->
+                    <div class="full-picture" style="display:flex">
+                        <div id="picture-div">
+                            <label for="employeePicture">
+                                <i class="bi bi-plus-circle-fill" style="font-size: 3em; color:#A1A1A1;"></i>
+                                <input type="file" class="form-control" id="employeePicture" name="employeePicture" value="<?= $employee['employee_picture']; ?>">
+                            </label>
+                        </div>
+                        <img id="picture-selected" src="" alt="" style="margin-left:100px;max-width:200px;">
                     </div>
 
                     <div class="form-group">
@@ -80,12 +109,24 @@
                     </div>
 
                     <button type="submit" class="btn" style="background-color: #990011; color:#FFFFFF; width: 150px">Save Changes</button>
-                    <a href="/company/index" class="btn" style="background-color: #FFFFFF; border-color:#990011; color:#990011; width: 150px; margin-left:10px">Discard Changes</a>
+                    <a href="/company/index" class="btn" style="background-color: #FFFFFF; border-color:#990011; color:#990011; width: 170px; margin-left:10px">Discard Changes</a>
                 </form>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById('employeePicture').addEventListener('change', function() {
+            let file = this.files[0];
+            let pictureSelected = document.getElementById('picture-selected');
+            if (file) {
+                pictureSelected.src = URL.createObjectURL(file);
+            } else {
+                pictureSelected.src = '';
+            }
+        });
+    </script>
 </body>
 
 <?= $this->endSection(); ?>

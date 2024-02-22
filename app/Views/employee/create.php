@@ -165,7 +165,7 @@
         }
     });
 
-    // show selected picture in #picture-selected after file selected
+
     document.getElementById('employeePicture').addEventListener('change', function() {
         let file = this.files[0];
         let pictureSelected = document.getElementById('picture-selected');
@@ -176,7 +176,7 @@
         }
     });
 
-    // show selected picture name in #pictureName after file selected
+
     document.getElementById('employeePicture').addEventListener('change', function() {
         let file = this.files[0];
         let pictureName = document.getElementById('pictureName');
